@@ -2,10 +2,13 @@ import json
 import os
 from elasticsearch import Elasticsearch
 import time
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import networkx as nx
 import sys
 from colors import bcolors
+
 
 
 def parse_config():
