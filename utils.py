@@ -51,7 +51,7 @@ class Utils:
         new_domains = []
 
         if whoxy[email_address]:
-            for i, j in whoxy[email_address].items():
+            for i, j in list(whoxy[email_address].items()):
                 new_domains.append(j['domain_name'])
                 domain_list.append([j['domain_name']])
 
@@ -73,7 +73,7 @@ class Utils:
                 for i in domain_virustotal[domain_name]:
                     new_ip.append(i)
         else:
-            print "Nothing found"
+            print("Nothing found")
 
         return new_ip
 

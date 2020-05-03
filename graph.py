@@ -32,19 +32,19 @@ test['000.000.000.000'].update({'email': {'xx@x': 'test', 'zzz@z': 'kupa3'}})
 def graf():
     g = nx.Graph()
 
-    g.add_nodes_from(test.keys())
+    g.add_nodes_from(list(test.keys()))
 
-    for k, v in test.items():
-        for i, j in v.items():
+    for k, v in list(test.items()):
+        for i, j in list(v.items()):
             g.add_edges_from([(k, t) for t in j], color='skyblue')
 
             if isinstance(j, dict):
-                for q, w in j.items():
+                for q, w in list(j.items()):
                     g.add_edge(q, w, color='orange')
 
     #edge_colors = [e[2]['color'] for e in g.edges(data=True)]
 
-    print g.edges
+    print(g.edges)
 
     nx.draw(g, with_labels=True)
     plt.show()
@@ -53,7 +53,7 @@ def graf():
 def elast():
     es = Elasticsearch([{'host': 'localhost', 'port': 9200}])
     res = es.index(index='b', doc_type='a', id=2, body=test)
-    print res
+    print(res)
 
 
 a = ["1"]
